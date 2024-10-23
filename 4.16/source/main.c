@@ -6,7 +6,7 @@ int main()
     int i, j;
     int rows = 10;
 
-    printf("(A)\t     (B)\t (C)\t     (D)\n");
+    printf("(A)\t     (B)\t (C)\t       (D)\n");
 
     for (i = 1; i <= rows; i++) 
     {
@@ -36,7 +36,7 @@ int main()
         {
             printf(" ");
         }
-        for (j = i + 1; j <= rows+1; j++)
+        for (j = i ; j <= rows; j++)
         {
             printf("%s", "*");
         }
@@ -47,7 +47,7 @@ int main()
         {
             printf(" ");
         }
-        for (j = rows - i + 2; j <= rows+1; j++)
+        for (j = rows - i + 1; j <= rows; j++)
         {
             printf("%s", "*");
         }

@@ -1,28 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() 
+int main()
 {
-    float grossSales, earnings;
-    const float baseSalary = 200.0;
-    const float commissionRate = 0.09;
+	int   number;   
+	float balance; 
+	float charged;   
+	float credits;  
+	float limit;    
+	float balance2; 
 
-    while (1) 
-    {
+	while (1)
+	{
+		printf("Enter account number (-1 to end): "); 
+		scanf("%d", &number);
 
-        printf("Enter sales in dollars (-1 to end): ");
-        scanf("%f", &grossSales);
+		if (number == -1) 
+			break;
 
-        if (grossSales == -1) 
-        {
-            break; 
-        }
+		printf("Enter beginning balance: "); 
+		scanf("%f", &balance);
+		printf("Enter total charges: ");    
+		scanf("%f", &charged);
+		printf("Enter total credits: ");   
+		scanf("%f", &credits);
+		printf("Enter credit limit: ");     
+		scanf("%f", &limit);
 
-        earnings = baseSalary + (commissionRate * grossSales);
+		balance2 = balance + charged - credits;
 
-        printf("Salary is: $%.2f\n\n", earnings);
-    }
+		if (balance2 > balance) 
+			printf("Account:      %d\n", number);
+		printf("Credit limit: %.2f\n", limit); 
+		printf("Balance:      %.2f\n", balance2); 
+		printf("Credit Limit Exceeded.\n");
 
-    system("pause");
-    return 0;
+		printf("\n");
+	}
+
+	system("pause");
+	return 0;
 }

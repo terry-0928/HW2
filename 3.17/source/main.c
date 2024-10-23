@@ -3,32 +3,41 @@
 
 int main()
 {
-    float mortgageAmount, interestRate, totalInterest, totalAmountPayable, monthlyPayment;
-    int mortgageTermYears, mortgageTermMonths;
+	int   number;
+	float balance;
+	float charged;
+	float credits;
+	float limit;
+	float balance2;
 
-    printf("Enter mortgage amount in dollars: ");
-    scanf("%f", &mortgageAmount);
+	while (1)
+	{
+		printf("Enter account number (-1 to end): ");
+		scanf("%d", &number);
 
-    printf("Enter mortgage term (in years): ");
-    scanf("%d", &mortgageTermYears);
+		if (number == -1)
+			break;
 
-    printf("Enter Interest rate:: ");
-    scanf("%f", &interestRate);
+		printf("Enter beginning balance: ");
+		scanf("%f", &balance);
+		printf("Enter total charges: ");
+		scanf("%f", &charged);
+		printf("Enter total credits: ");
+		scanf("%f", &credits);
+		printf("Enter credit limit: ");
+		scanf("%f", &limit);
 
-    mortgageTermMonths = mortgageTermYears * 12;
+		balance2 = balance + charged - credits;
 
-    interestRate /= 100;
+		if (balance2 > balance)
+		printf("Account:      %d\n", number);
+		printf("Credit limit: %.2f\n", limit);
+		printf("Balance:      %.2f\n", balance2);
+		printf("Credit Limit Exceeded.\n");
 
-    totalInterest = mortgageAmount * interestRate * mortgageTermYears;
+		printf("\n");
+	}
 
-    totalAmountPayable = mortgageAmount + totalInterest;
-
-    monthlyPayment = totalAmountPayable / mortgageTermMonths;
-
-    printf("Total interest payable: $%.2f\n", totalInterest);
-    printf("Total amount payable: $%.2f\n", totalAmountPayable);
-    printf("Required monthly payment: $%.2f\n", monthlyPayment);
-
-    system("pause");
-    return 0;
+	system("pause");
+	return 0;
 }
